@@ -50,7 +50,7 @@
 
     <!-- 详情弹窗 -->
     <el-dialog
-        :title="'提示词详情 - ' + detailItem.title"
+        :title="detailItem.title"
         :visible.sync="dialogVisible"
         width="80%"
         :before-close="handleClose"
@@ -58,13 +58,9 @@
     >
       <div class="detail-content">
         <div class="prompt-section">
-          <h4>正面提示词:</h4>
           <p class="prompt-text">{{ detailItem.prompt }}</p>
-          <h4>负面提示词:</h4>
-          <p class="prompt-text">{{ detailItem.negativePrompt }}</p>
         </div>
       </div>
-
       <span slot="footer" class="dialog-footer">
         <el-button type="success" size="small" @click="copyFullPrompt" icon="el-icon-document-copy" :loading="loading">
           复制
@@ -108,7 +104,7 @@ export default {
       if (!text || text.length <= 20) {
         return text;
       }
-      return text.substring(0, 20) + '...';
+      return text.substring(0, 30) + '...';
     },
 
     // 根据选中的分类过滤数据
@@ -201,7 +197,8 @@ export default {
 
       try {
         const fullPrompt = `正面提示词:\n${this.detailItem.prompt}\n\n负面提示词:\n${this.detailItem.negativePrompt}`;
-        await navigator.clipboard.writeText(fullPrompt);
+        let result = "请给我生成一副这样的图片:\n" + fullPrompt;
+        await navigator.clipboard.writeText(result);
         this.$message.success("已复制到剪贴板");
       } catch (err) {
         console.error('复制失败:', err);

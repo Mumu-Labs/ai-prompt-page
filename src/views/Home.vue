@@ -161,7 +161,7 @@ export default {
 @media (max-width: 768px) {
   .home-card {
     margin: 15px auto; /* 减少移动端间距 */
-    padding: 20px; /* 减少内边距 */
+    padding: 10px; /* 减少内边距 */
   }
 
   .welcome-title {

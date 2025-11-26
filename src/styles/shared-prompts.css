@@ -70,7 +70,7 @@ body {
     background-color: var(--white);
     border-bottom: 1px solid var(--border-color);
     /* 为头部添加渐变背景（可选） */
-    /* background: linear-gradient(to right, var(--white), var(--accent-color)); */
+    /* background: linear-gradient(to left, var(--white), var(--accent-color));*/
 }
 
 /* --- 分类标签 --- */
